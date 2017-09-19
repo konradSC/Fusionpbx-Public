@@ -51,8 +51,8 @@
 	end
 
 --debug
-	freeswitch.consoleLog("NOTICE", "[cf_loop_detect] Initial extension: "..extension.."\n");
-	freeswitch.consoleLog("NOTICE", "[cf_loop_detect] Domain Name: "..domain_name.."\n");
+	--freeswitch.consoleLog("NOTICE", "[cf_loop_detect] Initial extension: "..extension.."\n");
+	--freeswitch.consoleLog("NOTICE", "[cf_loop_detect] Domain Name: "..domain_name.."\n");
 	
 -- ensure that we have a fresh status on exit
 	session:setVariable("cf_loop", "")
