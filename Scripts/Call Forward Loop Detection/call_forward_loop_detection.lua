@@ -33,12 +33,8 @@
 
 --create the api object
 	api = freeswitch.API();
---	uuid = argv[1];
---	if not uuid or uuid == "" then return end;
---	extension = api:executeString("uuid_getvar " .. uuid .. " dialed_extension");
---	domain_name = api:executeString("uuid_getvar " .. uuid .. " domain_name");
 
---
+--Get the arguments
 	extension = argv[1];
 	domain_name = argv[2];
 
@@ -76,6 +72,8 @@ function get_cf (extension, domain_name)
 			freeswitch.consoleLog("notice", "[cidlookup] SQL: "..sql.."; params:" .. json.encode(params) .. "\n");
 		end	
 		
+
+		
 		dbh:query(sql, params, function(row)
 			if (row.forward_all_enabled == 'true') then
 				forward_all_destination = row.forward_all_destination;
@@ -95,10 +93,9 @@ end
 	extension_array[0]["extension"] = extension;
 	extension_array[0]["forward_all_enabled"], extension_array[0]["forward_all_destination"] = get_cf(extension, domain_name)
 	
-
 	if (extension_array[0]["forward_all_enabled"] == "true") then
 		freeswitch.consoleLog("NOTICE", "[cf_loop_detect] forward all is enabled: "..extension_array[0]["extension"].." forwards to "..extension_array[0]["forward_all_destination"].."\n");
-		--create array for 2nd leg and get information
+		--create array for next leg and get information
 			extension_array[1] = {};
 			extension_array[1]["extension"] = extension_array[0]["forward_all_destination"];
 			extension_array[1]["forward_all_enabled"], extension_array[1]["forward_all_destination"] = get_cf(extension_array[0]["forward_all_destination"], domain_name)
@@ -106,13 +103,10 @@ end
 				freeswitch.consoleLog("NOTICE", "[cf_loop_detect] forward all is enabled: "..extension_array[1]["extension"].." forwards to "..extension_array[1]["forward_all_destination"].."\n");
 				--loop present
 					if (extension_array[1]["forward_all_destination"] == extension_array[0]["extension"]) then
-						--api:executeString("uuid_setvar " .. uuid .. " cf_loop " .. 'true');
-						--session:setVariable("cf_loop2", "true");
-						--api:executeString("uuid_setvar " .. uuid .. " cf_loop true");
 						flag = "true";
 						freeswitch.consoleLog("NOTICE", "[cf_loop_detect] Loop Detected!!\n");
 					end
-				--not a loop, get the 3rd leg
+				--not a loop, get the next leg
 					extension_array[2] = {};
 					extension_array[2]["extension"] = extension_array[1]["forward_all_destination"];
 					extension_array[2]["forward_all_enabled"], extension_array[2]["forward_all_destination"] = get_cf(extension_array[1]["forward_all_destination"], domain_name)
@@ -120,15 +114,12 @@ end
 						freeswitch.consoleLog("NOTICE", "[cf_loop_detect] forward all is enabled: "..extension_array[2]["extension"].." forwards to "..extension_array[2]["forward_all_destination"].."\n");
 					--loop present
 						if (extension_array[2]["forward_all_destination"] == extension_array[0]["extension"] or extension_array[2]["forward_all_destination"] == extension_array[1]["extension"]) then
-							--api:executeString("uuid_setvar " .. uuid .. " cf_loop " .. 'true');
-							--session:setVariable("cf_loop2", "true");
-							--api:executeString("uuid_setvar " .. uuid .. " cf_loop true");
+
 							flag = "true";
 							freeswitch.consoleLog("NOTICE", "[cf_loop_detect] Loop Detected!!\n");
 						end
 					end
 			end
-
 	end
 
 if (flag == "true") then
