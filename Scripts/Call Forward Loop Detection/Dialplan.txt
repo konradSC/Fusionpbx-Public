@@ -1,0 +1,14 @@
+--Add the following to your dialplan
+--Context: ${domain_name} 
+--Domain: Global
+--Order: 885
+
+
+<extension name="cf_loop_detection" continue="true" uuid="52f21a91-3986-4964-82ea-d6f58636f05f">
+	<condition field="${user_exists}" expression="^true$">
+		<action application="set" data="forward_all_enabled=${user_data ${destination_number}@${domain_name} var forward_all_enabled}" inline="true"/>
+	</condition>
+	<condition field="${forward_all_enabled}" expression="true">
+		<action application="lua" data="call_forward_loop_detection.lua ${destination_number} ${domain_name}"/>
+	</condition>
+</extension>
