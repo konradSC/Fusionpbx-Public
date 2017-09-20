@@ -214,13 +214,13 @@
 	if (permission_exists('domain_counts_view_all')) {
 		echo "				<input type='text' class='txt' style='width: 150px' name='search' id='search' value='".$search."'>";
 		echo "				<input type='submit' class='btn' name='submit' value='".$text['button-search']."'>";
-	}
-	echo "				<input type='button' class='btn' value='".$text['button-export']."' ";
-	echo "onclick=\"window.location='domain_counts.php?";
-	if (strlen($_SERVER["QUERY_STRING"]) > 0) { 
-		echo $_SERVER["QUERY_STRING"]."&type=csv';\">\n";
-	} else { 
-		echo "type=csv';\">\n";
+		echo "				<input type='button' class='btn' value='".$text['button-export']."' ";
+		echo "onclick=\"window.location='domain_counts.php?";
+		if (strlen($_SERVER["QUERY_STRING"]) > 0) { 
+			echo $_SERVER["QUERY_STRING"]."&type=csv';\">\n";
+		} else { 
+			echo "type=csv';\">\n";
+		}
 	}
 
 
