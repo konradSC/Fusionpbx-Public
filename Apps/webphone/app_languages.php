@@ -1,0 +1,83 @@
+<?php
+$text['title-webphone']['en-us'] = "WebPhone";
+$text['title-webphone']['ar-eg'] = "ة";
+$text['title-webphone']['de-at'] = ""; //copied from de-de
+$text['title-webphone']['de-ch'] = ""; //copied from de-de
+$text['title-webphone']['de-de'] = "";
+$text['title-webphone']['es-cl'] = "";
+$text['title-webphone']['es-mx'] = ""; //copied from es-cl
+$text['title-webphone']['fr-ca'] = ""; //copied from fr-fr
+$text['title-webphone']['fr-fr'] = "";
+$text['title-webphone']['he-il'] = "";
+$text['title-webphone']['it-it'] = "";
+$text['title-webphone']['nl-nl'] = "";
+$text['title-webphone']['pl-pl'] = "";
+$text['title-webphone']['pt-br'] = ""; //copied from pt-pt
+$text['title-webphone']['pt-pt'] = "";
+$text['title-webphone']['ro-ro'] = "";
+$text['title-webphone']['ru-ru'] = "";
+$text['title-webphone']['sv-se'] = "";
+$text['title-webphone']['uk-ua'] = "";
+
+
+$text['title-description-webphone']['en-us'] = "Webphone is a simple browser-based phone. Select an extension and click 'Launch'";
+$text['title-description-webphone']['ar-eg'] = "ة";
+$text['title-description-webphone']['de-at'] = ""; //copied from de-de
+$text['title-description-webphone']['de-ch'] = ""; //copied from de-de
+$text['title-description-webphone']['de-de'] = "";
+$text['title-description-webphone']['es-cl'] = "";
+$text['title-description-webphone']['es-mx'] = ""; //copied from es-cl
+$text['title-description-webphone']['fr-ca'] = ""; //copied from fr-fr
+$text['title-description-webphone']['fr-fr'] = "";
+$text['title-description-webphone']['he-il'] = "";
+$text['title-description-webphone']['it-it'] = "";
+$text['title-description-webphone']['nl-nl'] = "";
+$text['title-description-webphone']['pl-pl'] = "";
+$text['title-description-webphone']['pt-br'] = ""; //copied from pt-pt
+$text['title-description-webphone']['pt-pt'] = "";
+$text['title-description-webphone']['ro-ro'] = "";
+$text['title-description-webphone']['ru-ru'] = "";
+$text['title-description-webphone']['sv-se'] = "";
+$text['title-description-webphone']['uk-ua'] = "";
+
+$text['label-select_extension']['en-us'] = "Select Extension";
+$text['label-select_extension']['ar-eg'] = "ة";
+$text['label-select_extension']['de-at'] = ""; //copied from de-de
+$text['label-select_extension']['de-ch'] = ""; //copied from de-de
+$text['label-select_extension']['de-de'] = "";
+$text['label-select_extension']['es-cl'] = "";
+$text['label-select_extension']['es-mx'] = ""; //copied from es-cl
+$text['label-select_extension']['fr-ca'] = ""; //copied from fr-fr
+$text['label-select_extension']['fr-fr'] = "";
+$text['label-select_extension']['he-il'] = "";
+$text['label-select_extension']['it-it'] = "";
+$text['label-select_extension']['nl-nl'] = "";
+$text['label-select_extension']['pl-pl'] = "";
+$text['label-select_extension']['pt-br'] = ""; //copied from pt-pt
+$text['label-select_extension']['pt-pt'] = "";
+$text['label-select_extension']['ro-ro'] = "";
+$text['label-select_extension']['ru-ru'] = "";
+$text['label-select_extension']['sv-se'] = "";
+$text['label-select_extension']['uk-ua'] = "";
+
+
+$text['label-webphone_launch']['en-us'] = "Launch";
+$text['label-webphone_launch']['ar-eg'] = "ة";
+$text['label-webphone_launch']['de-at'] = ""; //copied from de-de
+$text['label-webphone_launch']['de-ch'] = ""; //copied from de-de
+$text['label-webphone_launch']['de-de'] = "";
+$text['label-webphone_launch']['es-cl'] = "";
+$text['label-webphone_launch']['es-mx'] = ""; //copied from es-cl
+$text['label-webphone_launch']['fr-ca'] = ""; //copied from fr-fr
+$text['label-webphone_launch']['fr-fr'] = "";
+$text['label-webphone_launch']['he-il'] = "";
+$text['label-webphone_launch']['it-it'] = "";
+$text['label-webphone_launch']['nl-nl'] = "";
+$text['label-webphone_launch']['pl-pl'] = "";
+$text['label-webphone_launch']['pt-br'] = ""; //copied from pt-pt
+$text['label-webphone_launch']['pt-pt'] = "";
+$text['label-webphone_launch']['ro-ro'] = "";
+$text['label-webphone_launch']['ru-ru'] = "";
+$text['label-webphone_launch']['sv-se'] = "";
+$text['label-webphone_launch']['uk-ua'] = "";
+?>
