@@ -40,6 +40,10 @@
 		exit;
 	}
 
+//create token
+	$object = new token;
+	$token = $object->create($_SERVER['PHP_SELF']);
+
 //add multi-lingual support
 	$language = new text;
 	$text = $language->get();
@@ -82,19 +86,18 @@
 	require_once "resources/header.php";
 
 	echo "<form name='frm' id='frm' method='get'>\n";
-
 	echo "<div class='action_bar' id='action_bar'>\n";
 	echo "	<div class='heading'><b>".$text['title-webphone']."</b></div>\n";
+	echo "	<div class='actions'>\n";
+	echo "	</div>\n";
+	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
-
 	echo $text['title-description-webphone']."\n";
 	echo "<br /><br />\n";
 
 	echo "<div style='text-align: center; white-space: nowrap; margin: 10px 0 40px 0;'>";
 	echo $text['label-select_extension']."<br />\n";
-//	echo "<select name='id' class='formfld' onchange='updatevariable(this.value);'>\n";
 	echo "<select name='id' class='formfld' onchange='this.form.submit();'>\n";
-	//echo "<select name='id' class='formfld' '>\n";
 	echo "	<option value='' >".$text['label-select']."...</option>\n";
 	if (is_array($extensions) && @sizeof($extensions) != 0) {
 		foreach ($extensions as $row) {
@@ -103,6 +106,7 @@
 		}
 	}
 	echo "</select>\n";
+	echo "<input type='hidden' name='".$token['name']."' value='".$token['hash']."'>\n";
 	echo "</form>\n";
 	
 //begin the content
@@ -111,9 +115,7 @@
 	}
 	echo "  <script>\n"; 
 	echo "  var url      = 'phone/index.php?id=".escape($extension_uuid)."',\n";
-//	echo "  var url      = 'phone/index.php?id=(this.value);',\n"; 
 	echo "      features = 'menubar=no,location=no,resizable=no,scrollbars=no,status=no,addressbar=no,width=320,height=480'\n"; 
-	
 	echo "      $('#launchPhone').on('click', function(event) { \n"; 
 	echo "          event.preventDefault() \n"; 
 	        // This is set when the phone is open and removed on close
@@ -126,7 +128,6 @@
 	echo "      })\n";
 	echo "	function updatevariable(data) { \n";
 	echo "		value = data;\n";
-//	echo "		alert(value); \n";
 	echo "  } \n";
 	echo "  </script>\n"; 
 
