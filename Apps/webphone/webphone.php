@@ -29,7 +29,7 @@
 	include "root.php";
 	require_once "resources/require.php";
 	require_once "resources/check_auth.php";
-
+	require_once "resources/paging.php";
 
 //check permissions	
 	if (permission_exists('webphone_view')) {
@@ -47,9 +47,6 @@
 //add multi-lingual support
 	$language = new text;
 	$text = $language->get();
-
-//additional includes
-	require_once "resources/paging.php";
 
 //verify the id is as uuid then set as a variable
 	if (is_uuid($_GET['id'])) {
@@ -88,8 +85,8 @@
 	echo "<form name='frm' id='frm' method='get'>\n";
 	echo "<div class='action_bar' id='action_bar'>\n";
 	echo "	<div class='heading'><b>".$text['title-webphone']."</b></div>\n";
-	echo "	<div class='actions'>\n";
-	echo "	</div>\n";
+	echo "	<div class='actions'></div>\n";
+	echo "	\n";
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 	echo $text['title-description-webphone']."\n";
@@ -131,7 +128,7 @@
 	echo "  } \n";
 	echo "  </script>\n"; 
 
-	
+	echo "</div>\n";	
 //show the footer
 	require_once "resources/footer.php";
 ?>
